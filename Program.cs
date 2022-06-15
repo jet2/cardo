@@ -34,13 +34,13 @@ namespace consoleipc
                 }
                 try
                 {
-                    var npClient = new NpClient<ISenderText>(new NpEndPoint("TEST"));
+                    var npClient = new NpClient<ISenderText>(new NpEndPoint("TEST0"));
                     // See that we get the INNER exception with the Fixed code
                     try
                     {
 
                         Console.WriteLine($"Посылаю {ynumber} ");
-                        npClient.Proxy.SendText(ynumber);
+                        npClient.Proxy.SendText($"{{\"isstate\":0,\"statevalue\":0, \"card\":\"{ynumber}\"}}");
                         Console.WriteLine($"Долетело {ynumber} ");
                     }
                     catch (Exception ex)
